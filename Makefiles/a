@@ -1,0 +1,76 @@
+
+OBJS :=
+EXE = moveSemantics
+all: $(EXE)
+LFLAGS = -pthread
+CPPFLAGS = -pthread -std=c++17
+
+project: algorithm.o STL.o tree.o cpp2.o hashTablesinC.o
+	g++ algorithm.o -o main
+	g++ STL.o -o STL
+	g++ tree.o -o tree
+	g++ cpp1.o -o cpp1
+	g++ hashTablesinC.o -o cpp1
+
+%: %.cc
+	cc $(LFLAGS) $< -o $@ $(LFLAGS)
+
+%: %.cpp
+	g++ $(CPPFLAGS) $< -o $@ $(CPPFLAGS)
+
+
+project2: hashTableClosedChaining.o
+	cc hashTableClosedChaining.o -o hashTableClosedChaining
+
+project6: linkedList.o
+	cc linkedList.o -o linkedList
+linkedList.o:
+	cc linkedList.c -c
+
+project7: prova.o
+	clang prova.o -o prova
+prova.o:
+	clang prova.c -c
+
+threads: threads2.o
+	cc threads2.o -o threads2 -pthread
+threads2.o:
+	cc threads2.c -c -pthread
+
+fork: fork.o
+	cc fork.o -o fork -pthread
+fork.o:
+	cc fork.c -c -pthread
+
+memAlloc: memAlloc.o
+	cc memAlloc.o -o memAlloc -pthread
+memAlloc.o:
+	cc memAlloc.c -c -pthread
+
+
+
+project3: cpp2.o
+	g++ cpp2.o -o cpp2
+
+project4: cpp3.o
+	g++ cpp3.o -o cpp3
+
+project5: cocktailSchaker.o
+	g++ cocktailSchaker.o -o cocktailSchaker
+
+
+tree.o:
+	g++ tree.cpp -c -std=c++17
+cpp2.o:
+	g++ cpp2.cpp -c -std=c++17
+STL.o:
+	g++ STL.cpp -c -std=c++17
+algorithm.o:
+	g++ algorithm.cpp -c -std=c++17
+hashTableClosedChaining.o:
+	cc hashTableClosedChaining.c -c -std=c++17
+
+
+
+clean:
+	rm *.o $(EXE)

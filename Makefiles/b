@@ -1,0 +1,30 @@
+CFLAGS= -g -Wall 
+OFLAGS = -finstrument-functions
+CC = clang
+OBJS= uno.o due.o tre.o
+ASS= uno.s due.s tre.s
+
+%.o: %.c
+	#@echo["Compiling $< -> $@"]
+	$(CC) $(CFLAGS) -c $< -o $@
+
+%.s: %.c
+	#@echo["Compiling $< -> $@"]
+	$(CC) $(CFLAGS) -S $< -o $@
+
+uno: $(OBJS)
+	# @echo["Linking $^"]
+	$(CC) $(CFLAGS) $(OFLAGS) -o uno $^
+
+assembly: $(ASS)
+	#@echo["Compiling $< -> $@"]
+	$(CC) $(CFLAGS) -S $< -o $@
+
+objDump:
+	#@echo["Symbol table"]
+	objdump -t ./uno
+
+clean:
+	rm -f *.o
+	rm -f uno
+

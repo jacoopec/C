@@ -1,0 +1,26 @@
+#include "headers.h"
+
+#define NODE_OFFSET 10
+#define BUFFER_SIZE 4096
+
+
+typedef struct node_t{
+    unsigned int isvalid : 1;
+    unsigned int size : 15;
+    struct node* next;
+} node_t;
+
+int main(){
+    void* p;
+    int* ip;
+    p = ip;
+    node_t n = {.isvalid = 1, .size = 5, .next = NULL};
+    node_t n2;
+    memcpy(&n2 + NODE_OFFSET, &n, sizeof(node_t));
+    char buffer[BUFFER_SIZE];
+
+    printf("n2 = &d, %d, %d", n2.isvalid, n2.size, n2.next);
+
+    memset(buffer, 0, BUFFER_SIZE);
+    printf("n2 = &d, %d, %d", n2.isvalid, n2.size, n2.next);
+}
