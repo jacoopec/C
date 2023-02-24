@@ -97,24 +97,24 @@ void findPerson(char name[MAXNAME]){
 int main(){
     init_hash_table();
     print_table();
-    person Babacar;
-    Babacar.age=53;
-    Babacar.name = "Babacar";
-    person Muhrammad = {.name = "Muhrammad", .age=13};
-    person Kalid = {.name = "Kalid", .age=24};
-    person Musta = {.name = "Mustaphààhàhà", .age=45};
-    hash_table_insert(&Babacar);
-    hash_table_insert(&Muhrammad);
-    hash_table_insert(&Kalid);
-    hash_table_insert(&Musta);
+    person Gianni;
+    Gianni.age=53;
+    Gianni.name = "Gianni";
+    person Tony = {.name = "Tony", .age=13};
+    person Pietro = {.name = "Pietro", .age=24};
+    person Io = {.name = "Davide", .age=45};
+    hash_table_insert(&Gianni);
+    hash_table_insert(&Tony);
+    hash_table_insert(&Pietro);
+    hash_table_insert(&Io);
     print_table();
     findPerson("diojsc");
-    findPerson("Babacar");
-    person* p = hash_table_delete("Babacar");
+    findPerson("Gianni");
+    person* p = hash_table_delete("Gianni");
     print_table();
 
     // printf("babacar => %u\n", hash("babacar"));
-    // printf("Muhrammad => %u\n", hash("Muhrammad"));
-    // printf("Kalid => %u\n", hash("Kalid"));
-    // printf("Mustaphààhàhà => %u\n", hash("Mustaphààhà"));
+    // printf("Tony => %u\n", hash("Tony"));
+    // printf("Pietro => %u\n", hash("Pietro"));
+    // printf("Davide => %u\n", hash("GIno"));
 }

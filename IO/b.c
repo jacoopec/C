@@ -5,7 +5,7 @@
 int main(){
     int result;
     const char* path = "text2.txt";
-    char *phrase = "mit skifahren";
+    char *phrase = "remit skfern";
     FILE *f = fopen(path, "w");
     int c, i =0;
     printf("writing:\n");

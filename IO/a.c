@@ -5,7 +5,7 @@
 int main(){
     int result;
     const char* path = "text3.txt";
-    char *phrase = "mit skifahren";
+    char *phrase = "something";
     FILE *f = fopen(path, "w");
     int c = 532, i =320;
     double d = 0.00000005462564563;
